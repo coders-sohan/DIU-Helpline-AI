@@ -9,7 +9,7 @@ const SendMessageRoute = require('./Routes/SendMessageRoute')
 
 
 const { default: mongoose } = require('mongoose');
-const PORT = process.env.PORT || 8000;
+const PORT = 8000 || 8000;
 const app = express();
 
 const corsFonfig = {
@@ -28,7 +28,7 @@ app.use(bodyParser.json());
 app.use('/images', express.static(path.join(__dirname, 'images')))
 
 // Database Connection
-mongoose.connect(process.env.DATABASE_LOCAL,
+mongoose.connect('mongodb+srv://daffodil:SiCXHSK7tdIinkqK@cluster0.qtgabak.mongodb.net/test',
     {
         useNewUrlParser: true,
         autoIndex: true
