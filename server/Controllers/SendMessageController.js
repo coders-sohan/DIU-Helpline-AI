@@ -26,27 +26,18 @@ exports.getSendMessage = (req, res) => {
     }
     )
 
-    // SendMessage.find({}).where('expiresAt').lt(new Date()).exec(function (err, message) {
-    //     if (err) {
-    //         return res.status(400).json({
-    //             error: "Message not found"
-    //         });
-    //     }
-    //     res.json(message);
-    // });
 }
 
 
 exports.deleteSendMessage = (req, res) => {
-    //  delete category
-    const id = req.params.id
-    SendMessage.findByIdAndDelete(id).exec((err, message) => {
+    // delete all Send Message
+    SendMessage.deleteMany().exec((err, message) => {
         if (err) {
             return res.status(400).json({
-                error: "message not found"
+                error: "Message not found"
             });
         }
         res.json(message);
     }
-    );
+    )
 }

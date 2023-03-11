@@ -4,7 +4,7 @@ const { getSendMessage, AddSendMessageController, deleteSendMessage } = require(
 const router = express.Router();
 
 router.route("/").get(getSendMessage).post(AddSendMessageController);
-router.route("/:id").delete(deleteSendMessage);
+router.route("/delete").delete(deleteSendMessage);
 
 
 
