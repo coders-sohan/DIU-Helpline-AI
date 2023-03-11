@@ -5,6 +5,10 @@ const sendMessageSchema = mongoose.Schema({
         type: String,
         required: true,
     },
+    reply:{
+        type: String,
+
+    },
     createdAt: {
         type: Date,
         expires: 10 // expires in 1 minute
