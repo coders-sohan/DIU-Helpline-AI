@@ -91,11 +91,11 @@ const Home = () => {
         <div className='bgImg'>
             <div className='mid-container relative h-[90vh]'>
                 <div className='flex justify-center'>
-                    <div className='absolute mt-10 w-[85%] h-[85%] overflow-y-auto'>
+                    <div className='absolute mt-10 w-[85%] bottom-28   h-[85%] overflow-y-auto'>
 
                         {
                             chat?.slice(-5)?.map((item, index) => (
-                                <>
+                                <div >
                                     <div className="chat chat-end">
                                         <div className="chat-image avatar">
                                             <div className="w-10 rounded-full">
@@ -104,7 +104,7 @@ const Home = () => {
                                         </div>
                                         <div className="chat-bubble max-w-[50%]">{item?.content}</div>
                                     </div>
-                                    <div className="chat chat-start mb-5">
+                                    <div className="chat chat-start">
                                         <div className="chat-image avatar">
                                             <div className="w-10 rounded-full">
                                                 <img src={img} alt='profile' />
@@ -112,7 +112,7 @@ const Home = () => {
                                         </div>
                                         <div className="chat-bubble max-w-[50%]">{item?.reply}</div>
                                     </div>
-                                </>
+                                </div>
                             )
                             )
                         }
@@ -121,7 +121,7 @@ const Home = () => {
                 </div>
 
                 <form onSubmit={handleSubmit(handleChat)}>
-                    <div className='flex justify-center bottom-14 absolute w-full '>
+                    <div className='flex justify-center bottom-14 absolute w-full  '>
 
                         <div className='w-[80%]'>
                             <input
