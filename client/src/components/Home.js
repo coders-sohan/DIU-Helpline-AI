@@ -71,11 +71,25 @@ const Home = () => {
     }
 
 
+   const handleDelete = () => {
+         fetch('https://diu-helpline-ai-server.vercel.app/api/v1/send-message/delete', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+            .then(res => res.json())
+            .then(data => {
+                setUpdate(Math.random())
+                reset()
+            })
+    }
+
 
 
     return (
         <div className='bgImg'>
-            <div className='mid-container relative h-[85vh]'>
+            <div className='mid-container relative h-[90vh]'>
                 <div className='flex justify-center'>
                     <div className='absolute mt-10 w-[85%] h-[85%] overflow-y-auto'>
 
@@ -107,7 +121,7 @@ const Home = () => {
                 </div>
 
                 <form onSubmit={handleSubmit(handleChat)}>
-                    <div className='flex justify-center bottom-0 absolute w-full '>
+                    <div className='flex justify-center bottom-14 absolute w-full '>
 
                         <div className='w-[80%]'>
                             <input
@@ -127,6 +141,12 @@ const Home = () => {
 
                     </div>
                 </form>
+
+                <div className=' mt-20 flex justify-center '>
+                    <button 
+                    onClick={handleDelete}
+                    className='btn btn-error btn-sm absolute bottom-0 '>Clear Chat</button>
+                </div>
             </div>
         </div>
     );
