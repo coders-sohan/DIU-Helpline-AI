@@ -26,29 +26,29 @@ const Home = () => {
         const chat = data.chat
         let replyMessage = []
 
-        if(data.chat  === 'hi'){
+        if (data.chat === 'hi') {
             replyMessage = 'Hello'
-        }else if(data.chat === 'how are you'){
+        } else if (data.chat === 'how are you') {
             replyMessage = 'I am fine'
-        }else if(data.chat === 'what is your name'){
+        } else if (data.chat === 'what is your name') {
             replyMessage = 'My name is Chatbot'
-        }else if(data.chat === 'what is your age'){
+        } else if (data.chat === 'what is your age') {
             replyMessage = 'I am 1 year old'
-        }else if(data.chat === 'what is your hobby'){
+        } else if (data.chat === 'what is your hobby') {
             replyMessage = 'I like to chat with you'
-        }else if(data.chat === 'what is your favorite color'){
+        } else if (data.chat === 'what is your favorite color') {
             replyMessage = 'My favorite color is blue'
-        }else if(data.chat === 'what is your favorite food'){
+        } else if (data.chat === 'what is your favorite food') {
             replyMessage = 'My favorite food is pizza'
-        }else if(data.chat === 'what is your favorite movie'){
+        } else if (data.chat === 'what is your favorite movie') {
             replyMessage = 'My favorite movie is Harry Potter'
-        }else if(data.chat === 'what is your favorite book'){
+        } else if (data.chat === 'what is your favorite book') {
             replyMessage = 'My favorite book is Harry Potter'
-        }else if(data.chat === 'what is your favorite song'){
+        } else if (data.chat === 'what is your favorite song') {
             replyMessage = 'My favorite song is Shape of you'
-        }else if(data.chat === 'what is your favorite game'){
+        } else if (data.chat === 'what is your favorite game') {
             replyMessage = 'My favorite game is PUBG'
-        }else{
+        } else {
             replyMessage = 'Sorry, I did not understand ! Please let me know what you want to know'
         }
 
@@ -59,7 +59,7 @@ const Home = () => {
             },
             body: JSON.stringify({
                 content: chat,
-                reply: replyMessage 
+                reply: replyMessage
             })
         })
             .then(res => res.json())
@@ -71,8 +71,8 @@ const Home = () => {
     }
 
 
-   const handleDelete = () => {
-         fetch('https://diu-helpline-ai-server.vercel.app/api/v1/send-message/delete', {
+    const handleDelete = () => {
+        fetch('https://diu-helpline-ai-server.vercel.app/api/v1/send-message/delete', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -104,7 +104,7 @@ const Home = () => {
                                         </div>
                                         <div className="chat-bubble max-w-[50%]">{item?.content}</div>
                                     </div>
-                                     <div className="chat chat-start mb-5">
+                                    <div className="chat chat-start mb-5">
                                         <div className="chat-image avatar">
                                             <div className="w-10 rounded-full">
                                                 <img src={img} alt='profile' />
@@ -142,11 +142,15 @@ const Home = () => {
                     </div>
                 </form>
 
-                <div className=' mt-20 flex justify-center '>
-                    <button 
-                    onClick={handleDelete}
-                    className='btn btn-error btn-sm absolute bottom-0 '>Clear Chat</button>
-                </div>
+                {
+                    chat?.length > 0 && (
+                        <div className=' mt-20 flex justify-center '>
+                            <button
+                                onClick={handleDelete}
+                                className='btn btn-error btn-sm absolute bottom-0 '>Clear Chat</button>
+                        </div>
+                    )
+                }
             </div>
         </div>
     );
