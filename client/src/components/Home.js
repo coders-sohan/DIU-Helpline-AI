@@ -11,7 +11,7 @@ const Home = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:8000/api/v1/send-message')
+        fetch('https://diu-helpline-ai-server.vercel.app/api/v1/send-message')
             .then(res => res.json())
             .then(data => {
                 setChat(data)
@@ -52,7 +52,7 @@ const Home = () => {
             replyMessage = 'Sorry, I did not understand ! Please let me know what you want to know'
         }
 
-        fetch('http://localhost:8000/api/v1/send-message', {
+        fetch('https://diu-helpline-ai-server.vercel.app/api/v1/send-message', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
