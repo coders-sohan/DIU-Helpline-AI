@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.mid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+body {
+    background-color: #8485A4;
+}
+
+.bgImg{
+    background-image: url(../src/assets/artboard.png);
+    background-color: rgba(0, 0, 0, 0.438);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 93vh;
+    width: 100%;
+}
