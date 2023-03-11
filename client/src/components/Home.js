@@ -8,25 +8,58 @@ const Home = () => {
     const [update, setUpdate] = useState()
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
 
+
+
     useEffect(() => {
         fetch('http://localhost:8000/api/v1/send-message')
             .then(res => res.json())
             .then(data => {
                 setChat(data)
             })
+
     }, [update])
+
 
 
     const handleChat = (data) => {
         // e.preventDefault()
         const chat = data.chat
+        let replyMessage = []
+
+        if(data.chat === 'hi'){
+            replyMessage = 'Hello'
+        }else if(data.chat === 'how are you'){
+            replyMessage = 'I am fine'
+        }else if(data.chat === 'what is your name'){
+            replyMessage = 'My name is Chatbot'
+        }else if(data.chat === 'what is your age'){
+            replyMessage = 'I am 1 year old'
+        }else if(data.chat === 'what is your hobby'){
+            replyMessage = 'I like to chat with you'
+        }else if(data.chat === 'what is your favorite color'){
+            replyMessage = 'My favorite color is blue'
+        }else if(data.chat === 'what is your favorite food'){
+            replyMessage = 'My favorite food is pizza'
+        }else if(data.chat === 'what is your favorite movie'){
+            replyMessage = 'My favorite movie is Harry Potter'
+        }else if(data.chat === 'what is your favorite book'){
+            replyMessage = 'My favorite book is Harry Potter'
+        }else if(data.chat === 'what is your favorite song'){
+            replyMessage = 'My favorite song is Shape of you'
+        }else if(data.chat === 'what is your favorite game'){
+            replyMessage = 'My favorite game is PUBG'
+        }else{
+            replyMessage = 'Sorry, I did not understand ! Please let me know what you want to know'
+        }
+
         fetch('http://localhost:8000/api/v1/send-message', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                content: chat
+                content: chat,
+                reply: replyMessage 
             })
         })
             .then(res => res.json())
@@ -34,7 +67,10 @@ const Home = () => {
                 setUpdate(Math.random())
                 reset()
             })
+
     }
+
+
 
 
     return (
@@ -44,23 +80,23 @@ const Home = () => {
                     <div className='absolute mt-10 w-[85%] h-[85%] overflow-y-auto'>
 
                         {
-                            chat?.map((item, index) => (
+                            chat?.slice(-5)?.map((item, index) => (
                                 <>
                                     <div className="chat chat-end">
                                         <div className="chat-image avatar">
                                             <div className="w-10 rounded-full">
-                                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXR8ZW58MHx8MHx8&w=1000&q=80"  alt='profile'/>
+                                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXR8ZW58MHx8MHx8&w=1000&q=80" alt='profile' />
                                             </div>
                                         </div>
-                                        <div className="chat-bubble">{item?.content}</div>
+                                        <div className="chat-bubble max-w-[50%]">{item?.content}</div>
                                     </div>
-                                    <div className="chat chat-start mb-5">
+                                     <div className="chat chat-start mb-5">
                                         <div className="chat-image avatar">
                                             <div className="w-10 rounded-full">
                                                 <img src={img} alt='profile' />
                                             </div>
                                         </div>
-                                        <div className="chat-bubble">Hello How are you?</div>
+                                        <div className="chat-bubble max-w-[50%]">{item?.reply}</div>
                                     </div>
                                 </>
                             )
