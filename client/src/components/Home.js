@@ -26,7 +26,7 @@ const Home = () => {
         const chat = data.chat
         let replyMessage = []
 
-        if(data.chat === 'hi'){
+        if(data.chat  === 'hi'){
             replyMessage = 'Hello'
         }else if(data.chat === 'how are you'){
             replyMessage = 'I am fine'
