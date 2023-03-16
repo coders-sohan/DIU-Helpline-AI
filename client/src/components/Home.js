@@ -26,28 +26,20 @@ const Home = () => {
         const chat = data.chat
         let replyMessage = []
 
-        if (data.chat === 'hi') {
-            replyMessage = 'Hello'
-        } else if (data.chat === 'how are you') {
-            replyMessage = 'I am fine'
-        } else if (data.chat === 'what is your name') {
-            replyMessage = 'My name is Chatbot'
-        } else if (data.chat === 'what is your age') {
-            replyMessage = 'I am 1 year old'
-        } else if (data.chat === 'what is your hobby') {
-            replyMessage = 'I like to chat with you'
-        } else if (data.chat === 'what is your favorite color') {
-            replyMessage = 'My favorite color is blue'
-        } else if (data.chat === 'what is your favorite food') {
-            replyMessage = 'My favorite food is pizza'
-        } else if (data.chat === 'what is your favorite movie') {
-            replyMessage = 'My favorite movie is Harry Potter'
-        } else if (data.chat === 'what is your favorite book') {
-            replyMessage = 'My favorite book is Harry Potter'
-        } else if (data.chat === 'what is your favorite song') {
-            replyMessage = 'My favorite song is Shape of you'
-        } else if (data.chat === 'what is your favorite game') {
-            replyMessage = 'My favorite game is PUBG'
+        if (data.chat === 'Hi') {
+            replyMessage = 'Hello! How I can help  you today?'
+        } else if (data.chat === 'How i can get admission in Daffodil International University?') {
+            replyMessage = 'Last date to apply for admission is 10th May 2023 and the admission test will be held on 12th May 2023'
+        } else if (data.chat === ' can you tell me the process for admission?') {
+            replyMessage = 'sure!! You can get apply here in two ways ,firstly you can go online and apply through https://pd.daffodilvarsity.edu.bd/admission/online  this link or you can directly come to the admission office of the DIU.If you apply through the online you need to carry your photograph ,scanned copy of your signature SSC and HSC academy transcript and NID card copy and.And if you apply through the admission of DIU you need to carry some documents like six copies of your photograph scan copy of your signature copy of your NID card copy of your parents NID card copy of your local guardian NID card copy and original copy of ssc and hsc academy transcript.  In this case you must bring multiple copies of each document.'
+        } else if (data.chat === 'can i get any weaver?') {
+            replyMessage = 'Of course you will get. But first tell me What is your result of SSC and HSC exam?'
+        } else if (data.chat === 'I got  A+ in SSC and golden A+ in HSC.') {
+            replyMessage = 'You get 50% weber on tuition fees.If you want to keep your weber then you need to keep CGPA above 3.25 in every semester.'
+        } else if (data.chat === 'How much money I will have to pay to complete my studies if I keep my weber?') {
+            replyMessage = 'Please tell me which subject do you want to study.'
+        } else if (data.chat === 'I want to study software engineering.') {
+            replyMessage = 'You have to pay 58 thousand taka at the time of admission and then 20 thousand taka and also 60 thousand taka to 65 thousand taka every next semester.'
         } else {
             replyMessage = 'Sorry, I did not understand ! Please let me know what you want to know'
         }
