@@ -81,7 +81,7 @@ const Home = () => {
 
     return (
         <div className='bgImg'>
-            <div className='mid-container relative h-[90vh]'>
+            <div className='mid-container relative h-[90vh] overflow-auto'>
                 <div className='flex justify-center'>
                     <div className='absolute mt-10 w-[85%] bottom-28   h-[85%] overflow-y-auto'>
 
