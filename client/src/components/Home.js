@@ -73,7 +73,7 @@ const Home = ({ chat, setChat, update, setUpdate }) => {
       <div className="container mx-auto relative h-[90vh]">
         <div className="flex justify-center">
           <div className="absolute mt-10 w-[85%] h-[85%] overflow-y-auto">
-            {chat?.slice(-5)?.map((item, index) => (
+            {chat?.map((item, index) => (
               <div key={index}>
                 <div className="chat chat-end">
                   <div className="chat-image avatar">
@@ -98,7 +98,7 @@ const Home = ({ chat, setChat, update, setUpdate }) => {
             ))}
           </div>
 
-          <div className="bottom-14 absolute w-full mx-auto">
+          <div className="bottom-5 absolute w-full mx-auto ">
             <form onSubmit={handleSubmit(handleChat)} className="flex justify-center">
               <div className="w-[80%]">
                 <input
