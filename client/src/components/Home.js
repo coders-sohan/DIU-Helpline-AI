@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { BsFillSendFill } from "react-icons/bs";
 import img from "../assets/logo.jpeg";
 
-const Home = () => {
-  const [chat, setChat] = useState();
-  const [update, setUpdate] = useState();
+const Home = ({ chat, setChat, update, setUpdate }) => {
+//   const [chat, setChat] = useState();
+//   const [update, setUpdate] = useState();
   const {
     register,
     handleSubmit,
@@ -14,13 +14,6 @@ const Home = () => {
     formState: { errors },
   } = useForm();
 
-  useEffect(() => {
-    fetch("https://diu-helpline-ai-server.vercel.app/api/v1/send-message")
-      .then((res) => res.json())
-      .then((data) => {
-        setChat(data);
-      });
-  }, [update]);
 
   const handleChat = (data) => {
     // e.preventDefault()
@@ -73,22 +66,7 @@ const Home = () => {
       });
   };
 
-  const handleDelete = () => {
-    fetch(
-      "https://diu-helpline-ai-server.vercel.app/api/v1/send-message/delete",
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setUpdate(Math.random());
-        reset();
-      });
-  };
+  
 
   return (
     <div className="bgImg">
@@ -96,7 +74,7 @@ const Home = () => {
         <div className="flex justify-center">
           <div className="absolute mt-10 w-[85%] h-[85%] overflow-y-auto">
             {chat?.slice(-5)?.map((item, index) => (
-              <div>
+              <div key={index}>
                 <div className="chat chat-end">
                   <div className="chat-image avatar">
                     <div className="w-10 rounded-full">
@@ -106,7 +84,7 @@ const Home = () => {
                       />
                     </div>
                   </div>
-                  <div className="chat-bubble max-w-[50%]">{item?.content}</div>
+                  <div className="chat-bubble chat-bubble-success opacity-90 max-w-[50%]">{item?.content}</div>
                 </div>
                 <div className="chat chat-start">
                   <div className="chat-image avatar">
@@ -114,7 +92,7 @@ const Home = () => {
                       <img src={img} alt="profile" />
                     </div>
                   </div>
-                  <div className="chat-bubble max-w-[50%]">{item?.reply}</div>
+                  <div className="chat-bubble chat-bubble-success opacity-90 max-w-[50%]">{item?.reply}</div>
                 </div>
               </div>
             ))}
@@ -141,16 +119,6 @@ const Home = () => {
             </form>
           </div>
         </div>
-        {chat?.length > 0 && (
-          <div className=" mt-20 flex justify-center ">
-            <button
-              onClick={handleDelete}
-              className="btn btn-error btn-sm absolute bottom-0 "
-            >
-              Clear Chat
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );
