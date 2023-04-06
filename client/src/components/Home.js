@@ -99,7 +99,7 @@ const Home = ({ chat, setChat, update, setUpdate }) => {
           </div>
 
           <div className="bottom-14 absolute w-full mx-auto">
-            <form onSubmit={handleSubmit(handleChat)} className="flex justify-center shadow-lg">
+            <form onSubmit={handleSubmit(handleChat)} className="flex justify-center">
               <div className="w-[80%]">
                 <input
                   type="text"
