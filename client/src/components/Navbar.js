@@ -31,9 +31,9 @@ const Navbar = ({ chat, setUpdate }) => {
         <div className="mid-container ">
           <div className="bg-base-100 px-0 py-3">
             <div className="flex justify-between items-center">
-              <div>
+              <a href="https://daffodilvarsity.edu.bd/" rel="noreferrer" target="_blank">
                 <img src={img} alt="" className="w-40" />
-              </div>
+              </a>
               <div>
                 {chat?.length > 0 && (
                   <button
