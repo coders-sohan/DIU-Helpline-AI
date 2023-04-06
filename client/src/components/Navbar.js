@@ -27,7 +27,7 @@ const Navbar = ({ chat, setUpdate }) => {
 
   return (
     <>
-      <div className="shadow-sm sticky top-0 z-50 bg-base-100">
+      <div className="shadow-md sticky top-0 z-50 bg-base-100">
         <div className="mid-container ">
           <div className="bg-base-100 px-0 py-3">
             <div className="flex justify-between items-center">

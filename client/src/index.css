@@ -14,7 +14,7 @@ body {
 
 .bgImg{
     background-image: url(../src/assets/artboard.png);
-    background-color: rgba(255, 255, 255, 0.438);
+    background-color: rgba(255, 255, 255, 0.97);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

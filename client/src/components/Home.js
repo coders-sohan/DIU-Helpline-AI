@@ -79,40 +79,40 @@ const Home = ({ chat, setChat, update, setUpdate }) => {
                   <div className="chat-image avatar">
                     <div className="w-10 rounded-full">
                       <img
-                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cG9ydHJhaXR8ZW58MHx8MHx8&w=1000&q=80"
+                        src="https://i.ibb.co/L9f3qyp/profile.png"
                         alt="profile"
                       />
                     </div>
                   </div>
-                  <div className="chat-bubble chat-bubble-success opacity-90 max-w-[50%]">{item?.content}</div>
+                  <div className="chat-bubble chat-bubble-success text-white max-w-[50%]">{item?.content}</div>
                 </div>
                 <div className="chat chat-start">
                   <div className="chat-image avatar">
                     <div className="w-10 rounded-full">
-                      <img src={img} alt="profile" />
+                      <img src="https://i.ibb.co/YTz9613/Whats-App-Image-2023-04-06-at-17-26-26.jpg" alt="profile" className="border border-green-600 rounded-full" />
                     </div>
                   </div>
-                  <div className="chat-bubble chat-bubble-success opacity-90 max-w-[50%]">{item?.reply}</div>
+                  <div className="chat-bubble chat-bubble-success text-white max-w-[50%]">{item?.reply}</div>
                 </div>
               </div>
             ))}
           </div>
 
           <div className="bottom-14 absolute w-full mx-auto">
-            <form onSubmit={handleSubmit(handleChat)} className="flex justify-center">
+            <form onSubmit={handleSubmit(handleChat)} className="flex justify-center shadow-lg">
               <div className="w-[80%]">
                 <input
                   type="text"
                   id="chat"
                   name="chat"
                   placeholder="Type here"
-                  className="input rounded-none w-full "
+                  className="input input-bordered input-success w-full bg-gray-200 "
                   {...register("chat", { required: true })}
                 />
               </div>
               <button
                 type="submit"
-                className="bg-white py-2 px-5 cursor-pointer hover:bg-gray-400 duration-200 hover:text-white flex justify-center items-center  mr-9"
+                className="btn btn-success text-white"
               >
                 <BsFillSendFill />
               </button>
